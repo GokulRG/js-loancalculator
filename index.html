@@ -9,7 +9,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <style>
+        #loading,
+        #results {
+            display: none
+        }
+    </style>
     <title>Gokul's Loan Calculator</title>
 </head>
 
@@ -40,9 +45,9 @@
                         </div>
                     </form>
                     <!--LOADER-->
-                    <!-- <div id="loading">
-                        <img src="img/loading.gif" alt="loading..."/>
-                    </div> -->
+                    <div id="loading">
+                        <img src="img/loading.gif" height=250px width=350px alt="loading..." />
+                    </div>
                     <!--RESULTS-->
                     <div id="results" class="pt-4">
                         <h5>Results</h5>

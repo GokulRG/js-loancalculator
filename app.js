@@ -1,10 +1,18 @@
 //Listen for submit
-document.getElementById('loan-form').addEventListener('submit', calculateResults);
+document.getElementById('loan-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    //Hide Results
+    document.getElementById('results').style.display = 'none';
+
+    // Show loader
+    document.getElementById('loading').style.display = 'block';
+
+    //show loader only for 2 seconds
+    setTimeout(calculateResults, 2000);
+});
 
 //Calculate Results
 function calculateResults(event) {
-    event.preventDefault();
-    
     //UI variables
     const amount = document.getElementById('amount');
     const interest = document.getElementById('interest');
@@ -28,6 +36,9 @@ function calculateResults(event) {
         monthlyPayment.value = monthly.toFixed(2);
         totalPayment.value = (monthly * calculatedPayments).toFixed(2);
         totalInterest.value = ((monthly * calculatedPayments) - principal).toFixed(2);
+        //Show results div and hide spinner
+        document.getElementById('results').style.display = 'block';
+        document.getElementById('loading').style.display = 'none';
     } else {
         showError('Please check the values you\'ve entered');
     }
@@ -36,6 +47,10 @@ function calculateResults(event) {
 
 //Show Error
 function showError(message) {
+
+    //If error, hide both results and spinner
+    document.getElementById('results').style.display = 'none';
+    document.getElementById('loading').style.display = 'none';
     //Create a div
     const errorDiv = document.createElement('div');
 
